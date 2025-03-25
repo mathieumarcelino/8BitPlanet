@@ -78,6 +78,7 @@ body{
 
 .download{
     background: #ffffff;
+    color: #000;
     outline: none;
     border: none;
     padding: 10px;
@@ -98,6 +99,7 @@ body{
 
 .reload{
     background: #ffffff;
+    color: #000;
     outline: none;
     border: none;
     font-family: '8bit';
