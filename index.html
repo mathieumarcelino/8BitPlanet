@@ -1,0 +1,37 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.3.3/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"/>
+    <link href="style.css" rel="stylesheet">
+    <title>Planet</title>
+</head>
+<body>
+    <div id="particles-js"></div>
+    <div class="content">
+        <div class="border">
+            <div class="nft-canevas" id="nft-canevas"></div>
+            <div class="nft" id="nft">
+                <div class="img" id="img"></div>
+            </div>
+            <div class="text" id="text">
+                <span id="system-name"></span>
+                <span id="planet-name"></span>
+            </div>
+        </div>
+        <div class="btn">
+            <button class="reload" id="reload"><i class="fa-solid fa-rotate"></i></button>
+            <button class="download" id="download">Download</button>
+        </div>
+    </div>
+
+    <script src="array.js"></script>
+    <script src="script.js"></script>
+    <script src="particles.js"></script>
+</body>
+</html>
