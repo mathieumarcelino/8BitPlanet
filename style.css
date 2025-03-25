@@ -4,7 +4,6 @@
     border-radius: 2px solid #fff;
 } */
 
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 @font-face {
     font-family: "8bit";
     src: url("font.ttf") format("truetype")
