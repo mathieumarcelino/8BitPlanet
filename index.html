@@ -8,6 +8,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"/>
+    <link href="reset.css" rel="stylesheet">
     <link href="style.css" rel="stylesheet">
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
@@ -16,20 +17,30 @@
 <body>
     <div id="particles-js"></div>
     <div class="content">
-        <div class="border">
-            <div class="nft-canevas" id="nft-canevas"></div>
-            <div class="nft" id="nft">
-                <div class="img" id="img"></div>
+        <div class="title">
+            <h1>
+                <span>8</span><span>B</span><span>i</span><span>t</span>
+                <span>P</span><span>l</span><span>a</span><span>n</span><span>e</span><span>t</span>
+            </h1>        </div>
+        <div class="element">
+            <div class="border">
+                <div class="nft-canevas" id="nft-canevas"></div>
+                <div class="nft" id="nft">
+                    <div class="img" id="img"></div>
+                </div>
+                <div class="text" id="text">
+                    <span id="system-name"></span>
+                    <span id="planet-name"></span>
+                </div>
             </div>
-            <div class="text" id="text">
-                <span id="system-name"></span>
-                <span id="planet-name"></span>
+            <div class="btn">
+                <button class="reload" id="reload"><i class="fa-solid fa-rotate"></i></button>
+                <button class="download" id="download">Download</button>
             </div>
         </div>
-        <div class="btn">
-            <button class="reload" id="reload"><i class="fa-solid fa-rotate"></i></button>
-            <button class="download" id="download">Download</button>
-        </div>
+    </div>
+    <div class="footer">
+        <a href="https://mathi3u.com">mathi3u.com</a>
     </div>
 
     <script src="array.js"></script>
