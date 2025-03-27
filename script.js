@@ -342,19 +342,12 @@ async function drawStars(array) {
 }
 
 function renderArray(array) {
-
-    $('#nft').css('width', pxRender*64 + pxRender*2);
-    $('#nft').css('height', pxRender*64 + pxRender*2);
-
-    $('#top').css('width', pxRender*64);
-    $('#top').css('height', pxRender*64);
-
     for (let i = 0; i < array.length; i++) {
-        $('#img').append('<div id="row-' + i + '"></div>');
+        $('#border').append('<div id="row-' + i + '"></div>');
         for (let j = 0; j < array[i].length; j++) {
-            $('#row-' + i).append('<div style="width:'+pxRender+'px; height:'+pxRender+'px; background:' + array[i][j] + '"></div>');
+            $('#row-' + i).append('<div class="px" style="background:' + array[i][j] + '"></div>');
         }
-        $('#img').append('</div>');
+        $('#border').append('</div>');
     }
 }
 
@@ -363,14 +356,14 @@ function createCanvas(planetDetails) {
 
     myFont.load().then(function (font) {
         document.fonts.add(font);  // Ajoute la police au document
-        return html2canvas(document.querySelector("#nft"), {
+        return html2canvas(document.querySelector("#img"), {
             useCORS: true,
-            scale: 1,
-            backgroundColor: null
+            scale: 2,
+            backgroundColor: null,
         });
     }).then(canvas => {
-        canvas.setAttribute("id", "my-canvas");
-        $('#nft-canevas').append(canvas);
+        canvas.setAttribute("id", "img-canvas");
+        $('#canevas').append(canvas);
         addTextToCanvas(canvas, planetDetails);
         enableDownloadBtn();
     });
@@ -388,14 +381,12 @@ function addTextToCanvas(canvas, planetDetails) {
         ctx.textAlign = "left";
         ctx.fillStyle = "white";
 
-        // Récupérer la position de l'élément HTML capturé
-        var nftElement = document.querySelector("#nft");
-        var rect = nftElement.getBoundingClientRect(); // Coordonnées de l'élément sur la page
+        var imgElement = document.querySelector("#img");
+        var rect = imgElement.getBoundingClientRect(); // Coordonnées de l'élément sur la page
 
         var offsetX = rect.left; // Décalage horizontal
         var offsetY = rect.bottom;  // Décalage vertical
 
-        // Placer le texte en fonction des dimensions de l'élément HTML
         ctx.fillText(planetDetails.namePlanet, offsetX + pxRender*2, offsetY - pxRender*2);
         ctx.font = pxTextS + 'px myFont';
         ctx.fillText(planetDetails.systemPlanet, offsetX + pxRender*2, offsetY - pxRender*3 - 14);
@@ -427,7 +418,7 @@ function enableDownloadBtn(){
 }
 
 document.getElementById("download").addEventListener("click", function () {
-    const canvas = document.getElementById("my-canvas");
+    const canvas = document.getElementById("img-canvas");
     const image = canvas.toDataURL("image/png"); // Convertit le canvas en image PNG
     const name = this.getAttribute('data-name');
 
@@ -438,11 +429,11 @@ document.getElementById("download").addEventListener("click", function () {
 });
 
 document.getElementById("reload").addEventListener("click", function () {
-    $('#img').html('');
+    $('#border').html('');
     $('#planet-name').text('');
     $('#system-name').text('');
     $("#reload > i").addClass("rotate-icon rotate");
 
-    document.getElementById("my-canvas").remove();
+    document.getElementById("img-canvas").remove();
     generatePlanet();
 });
