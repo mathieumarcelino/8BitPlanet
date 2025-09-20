@@ -1,18 +1,15 @@
 version: '3.8'
 
-services:
-   planet-app:
-     container_name: planet-app
-     restart: always
-     build:
-       context: .
-       dockerfile: Dockerfile
-     ports:
-       - 3003:80
-
-     networks:
-       - planet-app_network
-
 networks:
-  planet-app_network:
-    driver: bridge
+  proxy:
+    external: true
+
+services:
+  planet-app:
+    container_name: planet-app
+    restart: unless-stopped
+    build:
+      context: .
+      dockerfile: Dockerfile
+    networks:
+      - proxy
